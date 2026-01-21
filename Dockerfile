@@ -29,19 +29,8 @@ RUN find /app/stable-diffusion.cpp/build -name sd-cli -type f -exec ln -s {} /us
 # Prepare models directory
 WORKDIR /app/models
 
-# Download Models
-# Note: These are large files. 
-# 1. Diffusion Model (T2I)
-RUN curl -L -o qwen-image-2512-Q4_K_M.gguf \
-    https://huggingface.co/unsloth/Qwen-Image-2512-GGUF/resolve/main/qwen-image-2512-Q4_K_M.gguf
-
-# 2. Text Encoder / LLM
-RUN curl -L -o Qwen2.5-VL-7B-Instruct-UD-Q4_K_XL.gguf \
-    https://huggingface.co/unsloth/Qwen2.5-VL-7B-Instruct-GGUF/resolve/main/Qwen2.5-VL-7B-Instruct-UD-Q4_K_XL.gguf
-
-# 3. VAE
-RUN curl -L -o qwen_image_vae.safetensors \
-    https://huggingface.co/Comfy-Org/Qwen-Image_ComfyUI/resolve/main/split_files/vae/qwen_image_vae.safetensors
+# Models will be mounted from the host.
+# See README.md or download_models.sh for instructions on how to get them.
 
 # Optional: Edit Model (Uncomment if needed, was in original script but not used in final command)
 # RUN curl -L -o qwen-image-edit-2511-Q4_K_M.gguf \
