@@ -33,7 +33,7 @@ jobs:
           file: ./Dockerfile
           push: true
           # 이미지 이름:태그 (latest 태그 사용 예시)
-          tags: ${{ secrets.DOCKER_USERNAME }}/my-image-name:latest
+          tags: kak2618/docker-images1:latest
           # 빌드 캐시를 활용하여 다음 빌드 속도를 높임
           cache-from: type=gha
           cache-to: type=gha,mode=max
